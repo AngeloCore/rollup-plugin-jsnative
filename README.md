@@ -53,7 +53,6 @@ Default: `null`
 
 A [picomatch pattern](https://github.com/micromatch/picomatch), or array of patterns, which specifies the files in the build the plugin should operate on. By default all files are targeted.
 
-
 ## Exports
 
 ### `generateBootstrap(buff: Buffer)`
