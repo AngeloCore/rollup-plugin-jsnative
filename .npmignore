@@ -1,0 +1,8 @@
+.git
+scripts
+src
+test
+.gitignore
+.prettierrc
+pnpm-lock.yaml
+tsconfig.json
