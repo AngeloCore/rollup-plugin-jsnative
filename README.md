@@ -1,31 +1,31 @@
-# rollup-plugin-template
+# rollup-plugin-jsnative
 
-The template for my rollup plugins.
+Rollup plugin to include native .node modules in output JavaScript file (very bad performance)
 
 ## Installation
 
 npm:
 
 ```console
-npm i rollup-plugin-template -D
+npm i rollup-plugin-jsnative -D
 ```
 
 yarn:
 
 ```console
-yarn add rollup-plugin-template -D
+yarn add rollup-plugin-jsnative -D
 ```
 
 pnpm:
 
 ```console
-pnpm add rollup-plugin-template -D
+pnpm add rollup-plugin-jsnative -D
 ```
 
 ## Usage
 
 ```js
-import template from "rollup-plugin-template";
+import native from "rollup-plugin-jsnative";
 
 export default {
   input: "src/index.js",
@@ -33,33 +33,42 @@ export default {
     dir: "output",
     format: "cjs"
   },
-  plugins: [template()]
+  plugins: [native()]
 };
 ```
 
 ## Options
 
-### `cool`
+### `exclude`
 
-Type: `boolean` <br>
-Default: `true`
+Type: `String` | `Array[...String]`<br>
+Default: `null`
 
-Determines if the plugin is cool
+A [picomatch pattern](https://github.com/micromatch/picomatch), or array of patterns, which specifies the files in the build the plugin should _ignore_. By default no files are ignored.
+
+### `include`
+
+Type: `String` | `Array[...String]`<br>
+Default: `null`
+
+A [picomatch pattern](https://github.com/micromatch/picomatch), or array of patterns, which specifies the files in the build the plugin should operate on. By default all files are targeted.
+
 
 ## Exports
 
-### `doIt(thing: string)`
+### `generateBootstrap(buff: Buffer)`
 
 Returns: `string`
 
-It does the specific thing.
+Accepts buffer of a .node file and returns generated bootstrap.
 
 ## Information
 
 ### Resources
 
-- [Github](https://github.com/AngeloCore/rollup-plugin-template)
+- [Github](https://github.com/AngeloCore/rollup-plugin-jsnative)
 - [Rollup](https://rollupjs.org/)
+- [rollup-plugin-natives](https://github.com/danielgindi/rollup-plugin-natives)
 
 Made by [Angelo II](https://github.com/AngeloCore)
 
